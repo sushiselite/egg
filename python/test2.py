@@ -18,7 +18,7 @@ def hashexample(message_bytes):
     data.extend(sha256(b'THE SECRETS OF THE UNIVERSE WILL BE UNLOCKED'))
     return sha256(data).decode('ascii')
 
-user_id = 'EI5582934564274176'
+user_id = 'EI5582934564274175'
 
 # Create a first contact request
 first_contact_request = ei_pb2.EggIncFirstContactRequest()
