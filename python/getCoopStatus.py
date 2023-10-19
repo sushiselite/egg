@@ -6,7 +6,7 @@ from mitmproxy import http
 import csv
 
 # Define your identifiers
-user_id = 'EI5582934564274176'
+user_id = 'MY ID'
 
 # Create a first contact request
 first_contact_request = ei_pb2.EggIncFirstContactRequest()
@@ -33,3 +33,5 @@ first_contact_response.backup.game.total_time_cheats_detected = 0
 first_contact_response.backup.game.unclaimed_soul_eggs_d = 12000000000000000000
 first_contact_response.backup.force_backup = True
 first_contact_response.backup.force_offer_backup = True
+
+backup_obj = Backup(first_contact_response.backup)
