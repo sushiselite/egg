@@ -1,14 +1,17 @@
-import ei_pb2
-from ei_pb2 import SaveBackupResponse
-# Your serialized data
-serialized_data = b'\n\x04\x08\x00\x10\x04\x12@ce7a1a9e8e04d20133df08c10a549ba0818cf308ece514f3a29bc6548fac053b \x00'
+import ei_pb2  # The generated Python bindings for your protobuf schema
 
-# Create an empty SaveBackupResponse object
-response = SaveBackupResponse()
+# Create an instance of the SaveBackupResponse message
+response = ei_pb2.SaveBackupResponse()
 
-# Parse the serialized data into the object
-response.ParseFromString(serialized_data)
+# Parse the binary data into the response object
+response.ParseFromString(b'\n\x04\x08\x00\x10\x04\x12@ce7a1a9e8e04d20133df08c10a549ba0818cf308ece514f3a29bc6548fac053b \x00')
 
-# Check if any fields are set
-print("Is initialized: ", response.IsInitialized())
-print("List of set fields: ", [f.name for f, _ in response.ListFields()])
+# Now you can access the fields like a regular Python object
+print("Success:", response.success)
+print("Error Code:", response.error_code)
+print("Message:", response.message)
+
+# If existing_backup is a message type within your protobuf definition,
+# you would access its fields like this:
+if response.HasField('existing_backup'):
+    print("Existing Backup:", response.existing_backup)
